@@ -17,7 +17,7 @@ const StatusBoxClockIn = ({currentUser, theClockState, photoIn, photoOut, theClo
 
         <section className='userInterface interface01'>
 
-             <h1 className='userGreeting'>Hello {currentUser.firstname}, let's get started.</h1>
+             <h1 className='userGreeting'>Hello <span>{currentUser.firstname}</span>, let's get started.</h1>
 
              <div className='statusBox'>
 

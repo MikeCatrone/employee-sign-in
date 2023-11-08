@@ -197,6 +197,10 @@ nav {
     font-size: 2.2rem;
  }
 
+ .userGreeting span {
+    color:orange;
+ }
+
 
 
  @media (max-width: 1240px) {
