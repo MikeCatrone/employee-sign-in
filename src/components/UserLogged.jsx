@@ -201,8 +201,6 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 
             <UserMenuDrawer theButtonColor={buttonColors} myHandler={menuButtonHandler} />
 
-            {/* ///// Mobile Nav Bar (For small screens) and user home page ui ///// */}
-
             <MobileNavBar navButtonHandler={menuButtonHandler} theButtonColor={buttonColors} />
 
 
@@ -210,7 +208,6 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 
                 {uiPage === 'home' && <UserHomePage allData={dataCollection} /> }
 
-        
             </div>
        
         </div>
