@@ -1,13 +1,17 @@
 
 import './UserLogged.css';
 
+import UserMenuDrawer from './UserMenuDrawer';
+import MobileNavBar from './MobileNavBar';
+
+import UserHomePage from './UserHomePage';
+import StatusBoxClockIn from './StatusBoxClockIn';
+import StatusBoxTimes from './StatusBoxTimes';
+
 import clockedIn from '../assets/clockedIn.jpg';
 import clockedOut from '../assets/notClocked.jpg';
 
-import UserMenuDrawer from './UserMenuDrawer';
-import MobileNavBar from './MobileNavBar';
-import StatusBoxClockIn from './StatusBoxClockIn';
-import StatusBoxTimes from './StatusBoxTimes';
+import UserAccountPage from './UserAccountPage';
 
 import {useState} from 'react';
 
@@ -33,7 +37,8 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 
     // Changes background color for clicked menu buttons
     const [buttonColors, setButtonColors] = useState({homeButton: '#435585', accountButton: '', logOutButton: ''});
-    
+    const [uiPage, setUIPage] = useState('home');
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,6 +131,7 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
             })
 
 
+
             // When clocking out we take the current hour and minutes then subtract from the last logged-in time.
             // The resulting time worked gets pushed to the employee's total 'hours worked'.
 
@@ -154,27 +160,34 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-    // Changes the colors of the menu buttons when pressed
+    // Changes the colors of the menu buttons when pressed and 
 
     const menuButtonHandler = (x) => {
         
         if(x === 'home') {
             setButtonColors({homeButton: '#435585', accountButton: ''});
+            setUIPage('home');
         }
+
 
         if(x === 'account') {
             setButtonColors({homeButton: '', accountButton: '#435585'});
-            
+            setUIPage('myaccount');   
         }
 
-        if(x === 'logOut') {
 
+        if(x === 'logOut') {
             setButtonColors({homeButton: '', accountButton: '', logOutButton: '#435585'});
             setUserInfo({username: '', password: '', firstname: '', lastname: '', clockTimes: []});
             signOut('login');
+            setUIPage('home');
             
         }
     }
+
+
+    // For easy data transfer to the UserHomePage component
+    let dataCollection = [userInfo, clockInState, clockedIn, clockedOut, clockedHandler, statusColor, status, goodbye, totalHours];
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -188,18 +201,16 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 
             <UserMenuDrawer theButtonColor={buttonColors} myHandler={menuButtonHandler} />
 
-
-            {/* ///// Main User Interface and Mobile Nav Bar (For small screens) ///// */}
+            {/* ///// Mobile Nav Bar (For small screens) and user home page ui ///// */}
 
             <MobileNavBar navButtonHandler={menuButtonHandler} theButtonColor={buttonColors} />
 
+
             <div className='entireInterface'>
 
-                <StatusBoxClockIn  currentUser={userInfo} theClockState={clockInState} photoIn={clockedIn} photoOut={clockedOut} 
-                                theClockedHandler={clockedHandler} theStatusColor={statusColor} theStatus={status} theGoodbye={goodbye} />
+                {uiPage === 'home' && <UserHomePage allData={dataCollection} /> }
 
-                <StatusBoxTimes currentUser={userInfo} theHours={totalHours}  />
-                
+        
             </div>
        
         </div>
