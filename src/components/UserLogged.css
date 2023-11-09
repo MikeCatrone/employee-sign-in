@@ -329,3 +329,11 @@ nav {
 
 
 }
+
+
+@media (max-width: 400px) {
+
+    nav {
+        width: 110%;
+    }
+}

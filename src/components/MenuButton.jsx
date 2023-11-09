@@ -14,7 +14,7 @@ const MenuButton = ({theText, theHandler, activeColor, theSize, theHeight}) => {
         <>
           <Button onClick={theHandler}
 
-          sx={{textTransform: 'None', width: theSize, height: theHeight, marginTop: '0.5rem', color: 'white', 
+          sx={{textTransform: 'None', width: theSize, height: theHeight, marginTop: '0.5rem', marginLeft: '0.7rem', color: 'white', 
             transition: '0.2s', borderRadius: '10px', backgroundColor: activeColor, "&:hover": {backgroundColor: activeColor}}}> <p>{theText}</p> </Button>  
 
         </>
