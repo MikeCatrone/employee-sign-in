@@ -296,6 +296,7 @@ nav {
 
     .userLoggedIn {
         justify-content: center;
+        overflow-x: hidden;
     }
     
 }
@@ -323,6 +324,7 @@ nav {
 
     nav {
         justify-content: flex-start;
+        width: 100%;
     }
 
 
