@@ -1,17 +1,16 @@
 
 import './UserLogged.css';
 
-import UserMenuDrawer from './UserMenuDrawer';
-import MobileNavBar from './MobileNavBar';
+import UserMenuDrawer from './UserMenuDrawer'; // default side-nav bar
+import MobileNavBar from './MobileNavBar';  // small-screen nav bar
 
 import UserHomePage from './UserHomePage';
-import StatusBoxClockIn from './StatusBoxClockIn';
-import StatusBoxTimes from './StatusBoxTimes';
+import UserAccountPage from './UserAccountPage';
 
 import clockedIn from '../assets/clockedIn.jpg';
 import clockedOut from '../assets/notClocked.jpg';
 
-import UserAccountPage from './UserAccountPage';
+
 
 import {useState} from 'react';
 
@@ -83,7 +82,7 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
             setClockIn(true);
             setStatus('Clocked In');
             setStatusColor('#5D9C59');
-            setGoodbye('');
+            setGoodbye('clockOn');
 
 
             // This updates the array of clock times state
@@ -120,7 +119,7 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
             setClockIn(false);
             setStatus('Clocked Out');
             setStatusColor('red');
-            setGoodbye('active');
+            setGoodbye('clockOut');
 
             setUserInfo((prev) => {
 
@@ -166,7 +165,9 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
         
         if(x === 'home') {
             setButtonColors({homeButton: '#435585', accountButton: ''});
+            setGoodbye('');
             setUIPage('home');
+            
         }
 
 
@@ -177,10 +178,13 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 
 
         if(x === 'logOut') {
+            
+            console.log(userInfo.clockTimes);
             setButtonColors({homeButton: '', accountButton: '', logOutButton: '#435585'});
             setUserInfo({username: '', password: '', firstname: '', lastname: '', clockTimes: []});
             signOut('login');
             setUIPage('home');
+            
             
         }
     }
@@ -197,7 +201,7 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 
         <div className='userLoggedIn' >
 
-            {/* ////// Left-Hand Menu Drawer /////// */}
+            {/* ////// Left-side Menu Drawer and the entire user UI /////// */}
 
             <UserMenuDrawer theButtonColor={buttonColors} myHandler={menuButtonHandler} />
 
@@ -206,7 +210,8 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 
             <div className='entireInterface'>
 
-                {uiPage === 'home' && <UserHomePage allData={dataCollection} /> }
+                {uiPage === 'home' ? <UserHomePage allData={dataCollection} /> :
+                 uiPage === 'myaccount' && <UserAccountPage /> }
 
             </div>
        

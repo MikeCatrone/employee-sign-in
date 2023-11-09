@@ -36,8 +36,8 @@ const StatusBoxClockIn = ({currentUser, theClockState, photoIn, photoOut, theClo
 
                 {/* //// These 2 lines of code are for the success popup boxes //// */}
 
-                {theClockState === true && <MyAlert statusText='You clocked in!' howSevere='success' theColor='#5D9C59' /> }
-                {theGoodbye === 'active' && <MyAlert statusText='You clocked out!' howSevere='success' theColor='#5D9C59' /> }
+                {theGoodbye === 'clockOn' && <MyAlert statusText='You clocked in!' howSevere='success' theColor='#5D9C59' /> }
+                {theGoodbye === 'clockOut' && <MyAlert statusText='You clocked out!' howSevere='success' theColor='#5D9C59' /> }
                 
              </div>
              
