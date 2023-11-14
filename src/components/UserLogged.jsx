@@ -27,7 +27,7 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
 
     // For clocked-in status, font colors, and a goodbye message trigger
     const [clockInState, setClockIn] = useState(false);
-    const [status, setStatus] = useState('Clocked In');
+    const [status, setStatus] = useState('Clocked Out');
     const [statusColor, setStatusColor] = useState('red');
     const [goodbye, setGoodbye] = useState('');
 
