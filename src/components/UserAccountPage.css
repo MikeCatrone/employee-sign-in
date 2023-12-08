@@ -1,0 +1,48 @@
+
+
+
+.userContainer {
+    width: 60vw;
+    height: 50rem;
+    margin: 3rem;
+    
+}
+
+.userContainer h2 {
+    color: #ED7D31;
+}
+
+.userContainer p {
+    margin-bottom: 0.5rem;
+}
+
+.userBox {
+    margin: 3rem;
+    width: 25rem;
+    height: 20rem;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    align-items: center;
+    display: flex;
+    flex-direction:column;
+    
+}
+
+.profilePhoto {
+    width: 4.5rem;
+    border-radius: 50%;
+    margin-top:2rem;
+    
+}
+
+h2 {
+  font-weight: 400;
+}
+
+.accountInfo {
+    width: 40rem;
+    height: 25rem;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

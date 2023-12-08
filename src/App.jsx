@@ -12,7 +12,7 @@ function App() {
 
   const [loginState, setLoginState] = useState('login');
   
-  const [localUsers, setLocalUsers] = useState([ {username:'adminMike', password: '1234', firstname: 'Michael', lastname: '', clockTimes: []} ]);
+  const [localUsers, setLocalUsers] = useState([ {username:'adminMike', password: '1234', firstname: 'Michael', lastname: 'Catrone', clockTimes: []} ]);
   const [localData, setLocalData] = useState({username: '', password: '', firstname: '', lastname: ''});
 
   const [registerState, setRegister] = useState(false);

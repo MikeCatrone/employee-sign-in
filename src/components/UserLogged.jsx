@@ -211,7 +211,7 @@ const UserLogged = ({userInfo, setUserInfo, signOut, allUsers}) => {
             <div className='entireInterface'>
 
                 {uiPage === 'home' ? <UserHomePage allData={dataCollection} /> :
-                 uiPage === 'myaccount' && <UserAccountPage /> }
+                 uiPage === 'myaccount' && <UserAccountPage theData={userInfo} /> }
 
             </div>
        
