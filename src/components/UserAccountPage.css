@@ -46,7 +46,7 @@ h2 {
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-<<<<<<< HEAD
+
 
 
 @media (max-width: 1240px) {
@@ -81,7 +81,7 @@ h2 {
 
     .userBox{
         width:90vw;
+        margin-left: 1.25rem;
     }
 }
-=======
->>>>>>> 3bf6e8599d4fe8b40c6211b9778cfa142e6db220
+
